@@ -1,7 +1,7 @@
 [
   {
     "id": "giant-arrow",
-    "name": "Giant Arrow",
+    "name": "Giant Arrow/Rudal",
     "category": "gear",
     "rarity": "Epic",
     "hero": "Archer Queen",
@@ -10,20 +10,32 @@
     "stats": [
       {
         "level": 1,
-        "damage": 900
+        "damage": 750
+      },
+      {
+        "level": 3,
+        "damage": 850
+      },
+      {
+        "level": 6,
+        "damage": 1000
       },
       {
         "level": 9,
-        "damage": 1800
+        "damage": 1100
+      },
+      {
+        "level": 12,
+        "damage": 1200
+      },
+      {
+        "level": 15,
+        "damage": 1350
       },
       {
         "level": 18,
-        "damage": 2700
+        "damage": 1500
       },
-      {
-        "level": 27,
-        "damage": 3600
-      }
     ],
     "tags": [
       "damage",
