@@ -106,23 +106,78 @@
         "stats": [
             {
                 "level": 1,
-                "damage": 1800,
+                "damage": 1500,
                 "radius": "2 tiles"
+            },
+            {
+                "level": 3,
+                "damage": 1700
+            },
+            {
+                "level": 5,
+                "damage": 1800
+            },
+            {
+                "level": 6,
+                "damage": 1950
+            },
+            {
+                "level": 8,
+                "damage": 2050
             },
             {
                 "level": 9,
-                "damage": 3600,
-                "radius": "2 tiles"
+                "damage": 2200,
+                "radius": "5 tiles"
+            },
+            {
+                "level": 11,
+                "damage": 2350
+            },
+            {
+                "level": 12,
+                "damage": 2650
+            },
+            {
+                "level": 14,
+                "damage": 2750
+            },
+            {
+                "level": 15,
+                "damage": 3100
+            },
+            {
+                "level": 17,
+                "damage": 3250
             },
             {
                 "level": 18,
-                "damage": 5400,
-                "radius": "2 tiles"
+                "damage": 3400
+            },
+            {
+                "level": 20,
+                "damage": 3500
+            },
+            {
+                "level": 21,
+                "damage": 3650
+            },
+            {
+                "level": 23,
+                "damage": 3750
+            },
+            {
+                "level": 24,
+                "damage": 3900,
+                "tiles": "6 tiles"
+            },
+            {
+                "level": 26,
+                "damage": 3950
             },
             {
                 "level": 27,
-                "damage": 7200,
-                "radius": "2 tiles"
+                "damage": 2100
             }
         ],
         "tags": ["damage", "area"]
