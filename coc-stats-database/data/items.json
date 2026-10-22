@@ -1,456 +1,416 @@
 [
-  {
-    "id": "giant-arrow",
-    "name": "Giant Arrow/Rudal",
-    "category": "gear",
-    "rarity": "Normal",
-    "hero": "Archer Queen",
-    "maxLevel": 18,
-    "description": "Piercing arrow ability. Values are starter reference points, verify before war.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": 750
-      },
-      {
-        "level": 3,
-        "damage": 850
-      },
-      {
-        "level": 6,
-        "damage": 1000
-      },
-      {
-        "level": 9,
-        "damage": 1100
-      },
-      {
-        "level": 12,
-        "damage": 1200
-      },
-      {
-        "level": 15,
-        "damage": 1350
-      },
-      {
-        "level": 18,
-        "damage": 1500
-      }
-    ],
-    "tags": [
-      "damage",
-      "active ability"
-    ]
-  },
-  {
-    "id": "rocket-spear",
-    "name": "Rocket Spear/Tombak Roket",
-    "category": "gear",
-    "rarity": "Epic",
-    "hero": "Royal Champion",
-    "maxLevel": 27,
-    "description": "Long-range spear gear for the Royal Champion.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": 350
-      },
-      {
-        "level": 3,
-        "damage": 420
-      },
-      {
-        "level": 6,
-        "damage": 490
-      },
-      {
-        "level": 27,
-        "damage": 2400
-      }
-    ],
-    "tags": [
-      "damage",
-      "range"
-    ]
-  },
-  {
-    "id": "seeking-shield",
-    "name": "Seeking Shield",
-    "category": "gear",
-    "rarity": "Epic",
-    "hero": "Royal Champion",
-    "maxLevel": 18,
-    "description": "A seeking shield that bounces between targets.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": 300,
-        "targets": 4
-      },
-      {
-        "level": 6,
-        "damage": 450,
-        "targets": 4
-      },
-      {
-        "level": 12,
-        "damage": 600,
-        "targets": 4
-      },
-      {
-        "level": 18,
-        "damage": 750,
-        "targets": 4
-      }
-    ],
-    "tags": [
-      "damage",
-      "multi-target"
-    ]
-  },
-  {
-    "id": "fireball",
-    "name": "Fireball",
-    "category": "gear",
-    "rarity": "Epic",
-    "hero": "Grand Warden",
-    "maxLevel": 27,
-    "description": "Calls down a fireball that deals area damage.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": 1800,
-        "radius": "2 tiles"
-      },
-      {
-        "level": 9,
-        "damage": 3600,
-        "radius": "2 tiles"
-      },
-      {
-        "level": 18,
-        "damage": 5400,
-        "radius": "2 tiles"
-      },
-      {
-        "level": 27,
-        "damage": 7200,
-        "radius": "2 tiles"
-      }
-    ],
-    "tags": [
-      "damage",
-      "area"
-    ]
-  },
-  {
-    "id": "frozen-arrow",
-    "name": "Frozen Arrow",
-    "category": "gear",
-    "rarity": "Epic",
-    "hero": "Archer Queen",
-    "maxLevel": 27,
-    "description": "Slows targets hit by the Archer Queen.",
-    "stats": [
-      {
-        "level": 1,
-        "slow": "30%",
-        "duration": "1.0s"
-      },
-      {
-        "level": 9,
-        "slow": "40%",
-        "duration": "1.5s"
-      },
-      {
-        "level": 18,
-        "slow": "50%",
-        "duration": "2.0s"
-      },
-      {
-        "level": 27,
-        "slow": "60%",
-        "duration": "2.5s"
-      }
-    ],
-    "tags": [
-      "slow",
-      "support"
-    ]
-  },
-  {
-    "id": "rage-spell",
-    "name": "Rage Spell",
-    "category": "spell",
-    "rarity": "Elixir",
-    "hero": "Spell",
-    "maxLevel": 6,
-    "description": "Boosts damage and movement speed of troops in its radius.",
-    "stats": [
-      {
-        "level": 1,
-        "damageBoost": "130%",
-        "speedBoost": 20
-      },
-      {
-        "level": 3,
-        "damageBoost": "150%",
-        "speedBoost": 26
-      },
-      {
-        "level": 6,
-        "damageBoost": "180%",
-        "speedBoost": 30
-      }
-    ],
-    "tags": [
-      "buff",
-      "spell"
-    ]
-  },
-  {
-    "id": "freeze-spell",
-    "name": "Freeze Spell",
-    "category": "spell",
-    "rarity": "Elixir",
-    "hero": "Spell",
-    "maxLevel": 7,
-    "description": "Freezes defenses and enemy units temporarily.",
-    "stats": [
-      {
-        "level": 1,
-        "duration": "2.5s"
-      },
-      {
-        "level": 4,
-        "duration": "4.0s"
-      },
-      {
-        "level": 7,
-        "duration": "5.5s"
-      }
-    ],
-    "tags": [
-      "freeze",
-      "spell"
-    ]
-  },
-  {
-    "id": "earthquake-spell",
-    "name": "Earthquake Spell",
-    "category": "spell",
-    "rarity": "Dark Elixir",
-    "hero": "Spell",
-    "maxLevel": 5,
-    "description": "Deals percentage-based damage to buildings. Multi-cast diminishing returns are not simulated by the calculator.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": "14%"
-      },
-      {
-        "level": 3,
-        "damage": "21%"
-      },
-      {
-        "level": 5,
-        "damage": "29%"
-      }
-    ],
-    "tags": [
-      "damage",
-      "spell"
-    ]
-  },
-  {
-    "id": "lightning-spell",
-    "name": "Lightning Spell",
-    "category": "spell",
-    "rarity": "Elixir",
-    "hero": "Spell",
-    "maxLevel": 11,
-    "description": "Deals instant damage to a small area.",
-    "stats": [
-      {
-        "level": 1,
-        "damage": 150
-      },
-      {
-        "level": 5,
-        "damage": 270
-      },
-      {
-        "level": 8,
-        "damage": 360
-      },
-      {
-        "level": 11,
-        "damage": 480
-      }
-    ],
-    "tags": [
-      "damage",
-      "spell"
-    ]
-  },
-  {
-    "id": "archer",
-    "name": "Archer",
-    "category": "troop",
-    "rarity": "Elixir",
-    "hero": "Barracks",
-    "maxLevel": 13,
-    "description": "Ranged ground troop that targets units or buildings.",
-    "stats": [
-      {
-        "level": 1,
-        "damagePerSecond": 7,
-        "hitpoints": 20
-      },
-      {
-        "level": 5,
-        "damagePerSecond": 23,
-        "hitpoints": 44
-      },
-      {
-        "level": 9,
-        "damagePerSecond": 60,
-        "hitpoints": 68
-      },
-      {
-        "level": 13,
-        "damagePerSecond": 126,
-        "hitpoints": 128
-      }
-    ],
-    "tags": [
-      "ranged",
-      "ground"
-    ]
-  },
-  {
-    "id": "dragon",
-    "name": "Dragon",
-    "category": "troop",
-    "rarity": "Elixir",
-    "hero": "Barracks",
-    "maxLevel": 12,
-    "description": "Flying unit with area damage.",
-    "stats": [
-      {
-        "level": 1,
-        "damagePerSecond": 140,
-        "hitpoints": 1900
-      },
-      {
-        "level": 6,
-        "damagePerSecond": 240,
-        "hitpoints": 3100
-      },
-      {
-        "level": 9,
-        "damagePerSecond": 310,
-        "hitpoints": 3900
-      },
-      {
-        "level": 12,
-        "damagePerSecond": 370,
-        "hitpoints": 4500
-      }
-    ],
-    "tags": [
-      "air",
-      "area"
-    ]
-  },
-  {
-    "id": "healer",
-    "name": "Healer",
-    "category": "troop",
-    "rarity": "Elixir",
-    "hero": "Barracks",
-    "maxLevel": 9,
-    "description": "Flying support unit that heals friendly ground troops.",
-    "stats": [
-      {
-        "level": 1,
-        "healingPerSecond": 20,
-        "hitpoints": 500
-      },
-      {
-        "level": 5,
-        "healingPerSecond": 40,
-        "hitpoints": 900
-      },
-      {
-        "level": 9,
-        "healingPerSecond": 72,
-        "hitpoints": 1500
-      }
-    ],
-    "tags": [
-      "air",
-      "support"
-    ]
-  },
-  {
-    "id": "barbarian-king",
-    "name": "Barbarian King",
-    "category": "hero",
-    "rarity": "Hero",
-    "hero": "Hero",
-    "maxLevel": 100,
-    "description": "Melee hero with high hitpoints and Iron Fist ability.",
-    "stats": [
-      {
-        "level": 1,
-        "damagePerSecond": 120,
-        "hitpoints": 1700
-      },
-      {
-        "level": 50,
-        "damagePerSecond": 400,
-        "hitpoints": 6500
-      },
-      {
-        "level": 100,
-        "damagePerSecond": 643,
-        "hitpoints": 11000
-      }
-    ],
-    "tags": [
-      "hero",
-      "ground"
-    ]
-  },
-  {
-    "id": "archer-queen",
-    "name": "Archer Queen",
-    "category": "hero",
-    "rarity": "Hero",
-    "hero": "Hero",
-    "maxLevel": 100,
-    "description": "Ranged hero with Royal Cloak ability.",
-    "stats": [
-      {
-        "level": 1,
-        "damagePerSecond": 160,
-        "hitpoints": 725
-      },
-      {
-        "level": 50,
-        "damagePerSecond": 550,
-        "hitpoints": 3200
-      },
-      {
-        "level": 100,
-        "damagePerSecond": 840,
-        "hitpoints": 4000
-      }
-    ],
-    "tags": [
-      "hero",
-      "ranged"
-    ]
-  }
+    {
+        "id": "giant-arrow",
+        "name": "Giant Arrow/Rudal",
+        "category": "gear",
+        "rarity": "Normal",
+        "hero": "Archer Queen",
+        "maxLevel": 18,
+        "description": "Piercing arrow ability. Values are starter reference points, verify before war.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": 750
+            },
+            {
+                "level": 3,
+                "damage": 850
+            },
+            {
+                "level": 6,
+                "damage": 1000
+            },
+            {
+                "level": 9,
+                "damage": 1100
+            },
+            {
+                "level": 12,
+                "damage": 1200
+            },
+            {
+                "level": 15,
+                "damage": 1350
+            },
+            {
+                "level": 18,
+                "damage": 1500
+            }
+        ],
+        "tags": ["damage", "active ability"]
+    },
+    {
+        "id": "rocket-spear",
+        "name": "Rocket Spear/Tombak Roket",
+        "category": "gear",
+        "rarity": "Epic",
+        "hero": "Royal Champion",
+        "maxLevel": 27,
+        "description": "Long-range spear gear for the Royal Champion.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": 350,
+                "totalAttack": 7
+            },
+            {
+                "level": 3,
+                "damage": 420
+            },
+            {
+                "level": 6,
+                "damage": 490
+            },
+            {
+                "level": 9,
+                "damage": 560,
+                "totalAttack": 8
+            }
+        ],
+        "tags": ["damage", "range"]
+    },
+    {
+        "id": "seeking-shield",
+        "name": "Seeking Shield",
+        "category": "gear",
+        "rarity": "Epic",
+        "hero": "Royal Champion",
+        "maxLevel": 18,
+        "description": "A seeking shield that bounces between targets.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": 300,
+                "targets": 4
+            },
+            {
+                "level": 6,
+                "damage": 450,
+                "targets": 4
+            },
+            {
+                "level": 12,
+                "damage": 600,
+                "targets": 4
+            },
+            {
+                "level": 18,
+                "damage": 750,
+                "targets": 4
+            }
+        ],
+        "tags": ["damage", "multi-target"]
+    },
+    {
+        "id": "fireball",
+        "name": "Fireball",
+        "category": "gear",
+        "rarity": "Epic",
+        "hero": "Grand Warden",
+        "maxLevel": 27,
+        "description": "Calls down a fireball that deals area damage.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": 1800,
+                "radius": "2 tiles"
+            },
+            {
+                "level": 9,
+                "damage": 3600,
+                "radius": "2 tiles"
+            },
+            {
+                "level": 18,
+                "damage": 5400,
+                "radius": "2 tiles"
+            },
+            {
+                "level": 27,
+                "damage": 7200,
+                "radius": "2 tiles"
+            }
+        ],
+        "tags": ["damage", "area"]
+    },
+    {
+        "id": "frozen-arrow",
+        "name": "Frozen Arrow",
+        "category": "gear",
+        "rarity": "Epic",
+        "hero": "Archer Queen",
+        "maxLevel": 27,
+        "description": "Slows targets hit by the Archer Queen.",
+        "stats": [
+            {
+                "level": 1,
+                "slow": "30%",
+                "duration": "1.0s"
+            },
+            {
+                "level": 9,
+                "slow": "40%",
+                "duration": "1.5s"
+            },
+            {
+                "level": 18,
+                "slow": "50%",
+                "duration": "2.0s"
+            },
+            {
+                "level": 27,
+                "slow": "60%",
+                "duration": "2.5s"
+            }
+        ],
+        "tags": ["slow", "support"]
+    },
+    {
+        "id": "rage-spell",
+        "name": "Rage Spell",
+        "category": "spell",
+        "rarity": "Elixir",
+        "hero": "Spell",
+        "maxLevel": 6,
+        "description": "Boosts damage and movement speed of troops in its radius.",
+        "stats": [
+            {
+                "level": 1,
+                "damageBoost": "130%",
+                "speedBoost": 20
+            },
+            {
+                "level": 3,
+                "damageBoost": "150%",
+                "speedBoost": 26
+            },
+            {
+                "level": 6,
+                "damageBoost": "180%",
+                "speedBoost": 30
+            }
+        ],
+        "tags": ["buff", "spell"]
+    },
+    {
+        "id": "freeze-spell",
+        "name": "Freeze Spell",
+        "category": "spell",
+        "rarity": "Elixir",
+        "hero": "Spell",
+        "maxLevel": 7,
+        "description": "Freezes defenses and enemy units temporarily.",
+        "stats": [
+            {
+                "level": 1,
+                "duration": "2.5s"
+            },
+            {
+                "level": 4,
+                "duration": "4.0s"
+            },
+            {
+                "level": 7,
+                "duration": "5.5s"
+            }
+        ],
+        "tags": ["freeze", "spell"]
+    },
+    {
+        "id": "earthquake-spell",
+        "name": "Earthquake Spell",
+        "category": "spell",
+        "rarity": "Dark Elixir",
+        "hero": "Spell",
+        "maxLevel": 5,
+        "description": "Deals percentage-based damage to buildings. Multi-cast diminishing returns are not simulated by the calculator.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": "14%"
+            },
+            {
+                "level": 3,
+                "damage": "21%"
+            },
+            {
+                "level": 5,
+                "damage": "29%"
+            }
+        ],
+        "tags": ["damage", "spell"]
+    },
+    {
+        "id": "lightning-spell",
+        "name": "Lightning Spell",
+        "category": "spell",
+        "rarity": "Elixir",
+        "hero": "Spell",
+        "maxLevel": 11,
+        "description": "Deals instant damage to a small area.",
+        "stats": [
+            {
+                "level": 1,
+                "damage": 150
+            },
+            {
+                "level": 5,
+                "damage": 270
+            },
+            {
+                "level": 8,
+                "damage": 360
+            },
+            {
+                "level": 11,
+                "damage": 480
+            }
+        ],
+        "tags": ["damage", "spell"]
+    },
+    {
+        "id": "archer",
+        "name": "Archer",
+        "category": "troop",
+        "rarity": "Elixir",
+        "hero": "Barracks",
+        "maxLevel": 13,
+        "description": "Ranged ground troop that targets units or buildings.",
+        "stats": [
+            {
+                "level": 1,
+                "damagePerSecond": 7,
+                "hitpoints": 20
+            },
+            {
+                "level": 5,
+                "damagePerSecond": 23,
+                "hitpoints": 44
+            },
+            {
+                "level": 9,
+                "damagePerSecond": 60,
+                "hitpoints": 68
+            },
+            {
+                "level": 13,
+                "damagePerSecond": 126,
+                "hitpoints": 128
+            }
+        ],
+        "tags": ["ranged", "ground"]
+    },
+    {
+        "id": "dragon",
+        "name": "Dragon",
+        "category": "troop",
+        "rarity": "Elixir",
+        "hero": "Barracks",
+        "maxLevel": 12,
+        "description": "Flying unit with area damage.",
+        "stats": [
+            {
+                "level": 1,
+                "damagePerSecond": 140,
+                "hitpoints": 1900
+            },
+            {
+                "level": 6,
+                "damagePerSecond": 240,
+                "hitpoints": 3100
+            },
+            {
+                "level": 9,
+                "damagePerSecond": 310,
+                "hitpoints": 3900
+            },
+            {
+                "level": 12,
+                "damagePerSecond": 370,
+                "hitpoints": 4500
+            }
+        ],
+        "tags": ["air", "area"]
+    },
+    {
+        "id": "healer",
+        "name": "Healer",
+        "category": "troop",
+        "rarity": "Elixir",
+        "hero": "Barracks",
+        "maxLevel": 9,
+        "description": "Flying support unit that heals friendly ground troops.",
+        "stats": [
+            {
+                "level": 1,
+                "healingPerSecond": 20,
+                "hitpoints": 500
+            },
+            {
+                "level": 5,
+                "healingPerSecond": 40,
+                "hitpoints": 900
+            },
+            {
+                "level": 9,
+                "healingPerSecond": 72,
+                "hitpoints": 1500
+            }
+        ],
+        "tags": ["air", "support"]
+    },
+    {
+        "id": "barbarian-king",
+        "name": "Barbarian King",
+        "category": "hero",
+        "rarity": "Hero",
+        "hero": "Hero",
+        "maxLevel": 100,
+        "description": "Melee hero with high hitpoints and Iron Fist ability.",
+        "stats": [
+            {
+                "level": 1,
+                "damagePerSecond": 120,
+                "hitpoints": 1700
+            },
+            {
+                "level": 50,
+                "damagePerSecond": 400,
+                "hitpoints": 6500
+            },
+            {
+                "level": 100,
+                "damagePerSecond": 643,
+                "hitpoints": 11000
+            }
+        ],
+        "tags": ["hero", "ground"]
+    },
+    {
+        "id": "archer-queen",
+        "name": "Archer Queen",
+        "category": "hero",
+        "rarity": "Hero",
+        "hero": "Hero",
+        "maxLevel": 100,
+        "description": "Ranged hero with Royal Cloak ability.",
+        "stats": [
+            {
+                "level": 1,
+                "damagePerSecond": 160,
+                "hitpoints": 725
+            },
+            {
+                "level": 50,
+                "damagePerSecond": 550,
+                "hitpoints": 3200
+            },
+            {
+                "level": 100,
+                "damagePerSecond": 840,
+                "hitpoints": 4000
+            }
+        ],
+        "tags": ["hero", "ranged"]
+    }
 ]
