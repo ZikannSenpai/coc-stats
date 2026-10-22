@@ -278,7 +278,7 @@
         "category": "spell",
         "rarity": "Elixir",
         "hero": "Spell",
-        "maxLevel": 11,
+        "maxLevel": 13,
         "description": "Deals instant damage to a small area.",
         "stats": [
             {
