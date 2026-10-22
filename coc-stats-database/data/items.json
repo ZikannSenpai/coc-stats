@@ -3,7 +3,7 @@
     "id": "giant-arrow",
     "name": "Giant Arrow/Rudal",
     "category": "gear",
-    "rarity": Normal",
+    "rarity": "Normal",
     "hero": "Archer Queen",
     "maxLevel": 18,
     "description": "Piercing arrow ability. Values are starter reference points, verify before war.",
