@@ -314,7 +314,12 @@ export default function Dashboard() {
                             </div>
                             <div className="stats-grid">
                                 {Object.entries(stats)
-                                    .filter(([key]) => key !== "level")
+                                    .filter(
+                                        ([key, value]) =>
+                                            key !== "level" &&
+                                            value !== undefined &&
+                                            value !== null
+                                    )
                                     .map(([key, value]) => (
                                         <div className="data-stat" key={key}>
                                             <span>
