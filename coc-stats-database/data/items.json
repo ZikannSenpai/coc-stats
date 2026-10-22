@@ -182,61 +182,60 @@
         ],
         "tags": ["damage", "area"]
     },
-
     {
-        "id": "rage-spell",
-        "name": "Rage Spell",
-        "category": "spell",
-        "rarity": "Elixir",
-        "hero": "Spell",
-        "maxLevel": 6,
-        "description": "Boosts damage and movement speed of troops in its radius.",
+        "id": "rocket-backpack",
+        "name": "Rocket Backpack",
+        "category": "gear",
+        "rarity": "Epic",
+        "hero": "Dragon Duke",
+        "maxLevel": 27,
+        "description": "Dasher across the center of the village breathing Fire and avoiding attacks.",
         "stats": [
             {
                 "level": 1,
-                "damageBoost": "130%",
-                "speedBoost": 20
+                "damage": 575
             },
             {
                 "level": 3,
-                "damageBoost": "150%",
-                "speedBoost": 26
+                "damage": 750
             },
             {
                 "level": 6,
-                "damageBoost": "180%",
-                "speedBoost": 30
-            }
-        ],
-        "tags": ["buff", "spell"]
-    },
-    {
-        "id": "freeze-spell",
-        "name": "Freeze Spell",
-        "category": "spell",
-        "rarity": "Elixir",
-        "hero": "Spell",
-        "maxLevel": 7,
-        "description": "Freezes defenses and enemy units temporarily.",
-        "stats": [
-            {
-                "level": 1,
-                "duration": "2.5s"
+                "damage": 950
             },
             {
-                "level": 4,
-                "duration": "4.0s"
+                "level": 9,
+                "damage": 1125
             },
             {
-                "level": 7,
-                "duration": "5.5s"
+                "level": 12,
+                "damage": 1325
+            },
+            {
+                "level": 15,
+                "damage": 1500
+            },
+            {
+                "level": 18,
+                "damage": 1700
+            },
+            {
+                "level": 21,
+                "damage": 1875
+            },
+            {
+                "level": 24,
+                "damage": 2050
+            },
+            {
+                "level": 27,
+                "damage": 2150
             }
-        ],
-        "tags": ["freeze", "spell"]
+        ]
     },
     {
         "id": "earthquake-spell",
-        "name": "Earthquake Spell",
+        "name": "Earthquake Spell/Gempa",
         "category": "spell",
         "rarity": "Dark Elixir",
         "hero": "Spell",
@@ -245,15 +244,30 @@
         "stats": [
             {
                 "level": 1,
-                "damage": "14%"
+                "damage": "14.5%",
+                "troopDamage": 0,
+                "radius": "3.5 tiles"
+            },
+            {
+                "level": 2,
+                "damage": "17%",
+                "radius": "3.8 tiles"
             },
             {
                 "level": 3,
-                "damage": "21%"
+                "damage": "21%",
+                "radius": "4.1 tiles"
+            },
+            {
+                "level": 4,
+                "damage": "25%",
+                "radius": "4.4 tiles"
             },
             {
                 "level": 5,
-                "damage": "29%"
+                "damage": "29%",
+                "troopDamage": "5%",
+                "radius": "4.7 tiles"
             }
         ],
         "tags": ["damage", "spell"]
