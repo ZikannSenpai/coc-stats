@@ -50,7 +50,7 @@
         "stats": [
             {
                 "level": 1,
-                "damage": 350,
+                "damagePerSecond": 350,
                 "totalAttack": 7
             },
             {
