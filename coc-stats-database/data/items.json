@@ -182,38 +182,7 @@
         ],
         "tags": ["damage", "area"]
     },
-    {
-        "id": "frozen-arrow",
-        "name": "Frozen Arrow",
-        "category": "gear",
-        "rarity": "Epic",
-        "hero": "Archer Queen",
-        "maxLevel": 27,
-        "description": "Slows targets hit by the Archer Queen.",
-        "stats": [
-            {
-                "level": 1,
-                "slow": "30%",
-                "duration": "1.0s"
-            },
-            {
-                "level": 9,
-                "slow": "40%",
-                "duration": "1.5s"
-            },
-            {
-                "level": 18,
-                "slow": "50%",
-                "duration": "2.0s"
-            },
-            {
-                "level": 27,
-                "slow": "60%",
-                "duration": "2.5s"
-            }
-        ],
-        "tags": ["slow", "support"]
-    },
+
     {
         "id": "rage-spell",
         "name": "Rage Spell",
