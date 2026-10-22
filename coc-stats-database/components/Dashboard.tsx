@@ -445,11 +445,11 @@ export default function Dashboard() {
                             </label>
                         </div>
 
+                        {/* HERO GEAR */}
                         <div className="calc-intro">
                             <h3>Hero Gear</h3>
                             <p>
-                                Pilih maksimal 3 gear untuk menghitung total
-                                damage.
+                                Aktifkan gear yang digunakan. Maksimal 3 gear.
                             </p>
                         </div>
 
@@ -468,43 +468,54 @@ export default function Dashboard() {
 
                             return (
                                 <div className="calc-fields" key={index}>
+                                    {/* TOGGLE GEAR */}
+                                    <div className="calc-toggle">
+                                        <span>Gear {index + 1}</span>
+
+                                        <label className="toggle-switch">
+                                            <input
+                                                type="checkbox"
+                                                checked={enabled}
+                                                onChange={e => {
+                                                    const states = [
+                                                        ...gearEnabled
+                                                    ];
+                                                    states[index] =
+                                                        e.target.checked;
+                                                    setGearEnabled(states);
+                                                }}
+                                            />
+                                            <span className="toggle-slider" />
+                                        </label>
+                                    </div>
+
+                                    {/* PILIH GEAR */}
                                     <label>
-                                        Gear {index + 1}
+                                        Pilih Gear
                                         <select
-                                            value={
-                                                enabled ? gearIds[index] : ""
-                                            }
+                                            value={gearIds[index]}
+                                            disabled={!enabled}
                                             onChange={e => {
                                                 const ids = [...gearIds];
                                                 ids[index] = e.target.value;
                                                 setGearIds(ids);
 
-                                                const states = [...gearEnabled];
-                                                states[index] = Boolean(
-                                                    e.target.value
+                                                const item = availableGear.find(
+                                                    gear =>
+                                                        gear.id ===
+                                                        e.target.value
                                                 );
-                                                setGearEnabled(states);
 
-                                                if (e.target.value) {
-                                                    const item =
-                                                        availableGear.find(
-                                                            gear =>
-                                                                gear.id ===
-                                                                e.target.value
-                                                        );
-
-                                                    const levels = [
-                                                        ...gearLevels
-                                                    ];
-                                                    levels[index] = Math.min(
-                                                        levels[index],
-                                                        item?.maxLevel ?? 1
-                                                    );
-                                                    setGearLevels(levels);
-                                                }
+                                                const levels = [...gearLevels];
+                                                levels[index] = Math.min(
+                                                    levels[index],
+                                                    item?.maxLevel ?? 1
+                                                );
+                                                setGearLevels(levels);
                                             }}
                                         >
-                                            <option value="">OFF</option>
+                                            <option value="">Pilih Gear</option>
+
                                             {availableGear.map(item => (
                                                 <option
                                                     key={item.id}
@@ -516,6 +527,7 @@ export default function Dashboard() {
                                         </select>
                                     </label>
 
+                                    {/* LEVEL GEAR */}
                                     <label>
                                         Level Gear
                                         <input
@@ -526,6 +538,7 @@ export default function Dashboard() {
                                             value={gearLevels[index]}
                                             onChange={e => {
                                                 const levels = [...gearLevels];
+
                                                 levels[index] = Math.min(
                                                     selectedGear?.maxLevel ?? 1,
                                                     Math.max(
@@ -535,18 +548,20 @@ export default function Dashboard() {
                                                         ) || 1
                                                     )
                                                 );
+
                                                 setGearLevels(levels);
                                             }}
                                         />
                                     </label>
 
+                                    {/* DAMAGE GEAR */}
                                     <label>
                                         Damage Gear
                                         <input
                                             type="text"
                                             readOnly
                                             value={
-                                                enabled
+                                                enabled && selectedGear
                                                     ? getDamage(
                                                           gearIds[index],
                                                           gearLevels[index]
@@ -559,6 +574,7 @@ export default function Dashboard() {
                             );
                         })}
 
+                        {/* LIGHTNING SPELL */}
                         <div className="calc-intro">
                             <h3>Lightning Spell</h3>
                             <p>
@@ -567,27 +583,31 @@ export default function Dashboard() {
                         </div>
 
                         <div className="calc-fields">
-                            <label>
-                                Status Lightning
-                                <select
-                                    value={lightningEnabled ? "on" : "off"}
-                                    onChange={e =>
-                                        setLightningEnabled(
-                                            e.target.value === "on"
-                                        )
-                                    }
-                                >
-                                    <option value="off">OFF</option>
-                                    <option value="on">ON</option>
-                                </select>
-                            </label>
+                            {/* TOGGLE LIGHTNING */}
+                            <div className="calc-toggle">
+                                <span>Lightning Spell</span>
 
+                                <label className="toggle-switch">
+                                    <input
+                                        type="checkbox"
+                                        checked={lightningEnabled}
+                                        onChange={e =>
+                                            setLightningEnabled(
+                                                e.target.checked
+                                            )
+                                        }
+                                    />
+                                    <span className="toggle-slider" />
+                                </label>
+                            </div>
+
+                            {/* LEVEL LIGHTNING */}
                             <label>
                                 Level Lightning
                                 <input
                                     type="number"
                                     min="1"
-                                    max={13}
+                                    max="13"
                                     disabled={!lightningEnabled}
                                     value={lightningLevel}
                                     onChange={e =>
@@ -604,6 +624,7 @@ export default function Dashboard() {
                                 />
                             </label>
 
+                            {/* DAMAGE LIGHTNING */}
                             <label>
                                 Damage Lightning
                                 <input
@@ -616,13 +637,15 @@ export default function Dashboard() {
                             </label>
                         </div>
 
+                        {/* HASIL */}
                         <div className="calc-result">
                             <span>TOTAL ESTIMATED DAMAGE</span>
+
                             <strong>{damage.toLocaleString("id-ID")}</strong>
 
                             <small>
                                 Earthquake:{" "}
-                                {quakeDamage.toLocaleString("id-ID")} / cast
+                                {quakeDamage.toLocaleString("id-ID")}
                                 {" · "}
                                 Gear: {gearDamage.toLocaleString("id-ID")}
                                 {" · "}
