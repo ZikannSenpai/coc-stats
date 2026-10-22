@@ -54,6 +54,12 @@ export default function Dashboard() {
         [quakePercent, setQuakePercent] = useState("29"),
         [quakeCount, setQuakeCount] = useState("3"),
         [mobileMenu, setMobileMenu] = useState(false);
+
+    const [gearEnabled, setGearEnabled] = useState([false, false, false]);
+    const [gearIds, setGearIds] = useState(["", "", ""]);
+    const [gearLevels, setGearLevels] = useState([1, 1, 1]);
+    const [lightningEnabled, setLightningEnabled] = useState(false);
+    const [lightningLevel, setLightningLevel] = useState(13);
     const filtered = useMemo(
         () =>
             items.filter(
@@ -78,9 +84,32 @@ export default function Dashboard() {
         }
         setMobileMenu(false);
     };
-    const damage = Math.round(
+    const getDamage = (id: string, lvl: number) => {
+        const item = items.find(i => i.id === id);
+        if (!item) return 0;
+
+        const stat = getStats(item, lvl);
+        const value = Number(stat.damage ?? 0);
+
+        return Number.isFinite(value) ? value : 0;
+    };
+
+    const quakeDamage = Math.round(
         (Number(baseHp || 0) * Number(quakePercent || 0)) / 100
     );
+
+    const gearDamage = gearEnabled.reduce(
+        (total, enabled, index) =>
+            total +
+            (enabled ? getDamage(gearIds[index], gearLevels[index]) : 0),
+        0
+    );
+
+    const lightningDamage = lightningEnabled
+        ? getDamage("lightning-spell", lightningLevel)
+        : 0;
+
+    const damage = quakeDamage + gearDamage + lightningDamage;
     return (
         <main className="app-shell">
             <aside className={`sidebar ${mobileMenu ? "open" : ""}`}>
@@ -371,13 +400,13 @@ export default function Dashboard() {
                             <div className="calc-icon">
                                 <Calculator size={23} />
                             </div>
-                            <h3>Earthquake Spell</h3>
+                            <h3>Attack Damage Calculator</h3>
                             <p>
-                                Estimasi satu cast dari persentase HP yang kamu
-                                input. Jumlah cast belum menerapkan diminishing
-                                returns resmi.
+                                Hitung estimasi damage Earthquake Spell, Hero
+                                Gear, dan Lightning Spell dalam satu serangan.
                             </p>
                         </div>
+
                         <div className="calc-fields">
                             <label>
                                 Building HP
@@ -388,8 +417,9 @@ export default function Dashboard() {
                                     onChange={e => setBaseHp(e.target.value)}
                                 />
                             </label>
+
                             <label>
-                                Damage per cast (%)
+                                Earthquake Damage (%)
                                 <input
                                     type="number"
                                     min="0"
@@ -400,8 +430,9 @@ export default function Dashboard() {
                                     }
                                 />
                             </label>
+
                             <label>
-                                Jumlah cast
+                                Jumlah Earthquake
                                 <input
                                     type="number"
                                     min="1"
@@ -413,14 +444,190 @@ export default function Dashboard() {
                                 />
                             </label>
                         </div>
+
+                        <div className="calc-intro">
+                            <h3>Hero Gear</h3>
+                            <p>
+                                Pilih maksimal 3 gear untuk menghitung total
+                                damage.
+                            </p>
+                        </div>
+
+                        {gearEnabled.map((enabled, index) => {
+                            const availableGear = items.filter(
+                                item =>
+                                    item.category === "gear" &&
+                                    item.stats.some(
+                                        stat => stat.damage !== undefined
+                                    )
+                            );
+
+                            const selectedGear = availableGear.find(
+                                item => item.id === gearIds[index]
+                            );
+
+                            return (
+                                <div className="calc-fields" key={index}>
+                                    <label>
+                                        Gear {index + 1}
+                                        <select
+                                            value={
+                                                enabled ? gearIds[index] : ""
+                                            }
+                                            onChange={e => {
+                                                const ids = [...gearIds];
+                                                ids[index] = e.target.value;
+                                                setGearIds(ids);
+
+                                                const states = [...gearEnabled];
+                                                states[index] = Boolean(
+                                                    e.target.value
+                                                );
+                                                setGearEnabled(states);
+
+                                                if (e.target.value) {
+                                                    const item =
+                                                        availableGear.find(
+                                                            gear =>
+                                                                gear.id ===
+                                                                e.target.value
+                                                        );
+
+                                                    const levels = [
+                                                        ...gearLevels
+                                                    ];
+                                                    levels[index] = Math.min(
+                                                        levels[index],
+                                                        item?.maxLevel ?? 1
+                                                    );
+                                                    setGearLevels(levels);
+                                                }
+                                            }}
+                                        >
+                                            <option value="">OFF</option>
+                                            {availableGear.map(item => (
+                                                <option
+                                                    key={item.id}
+                                                    value={item.id}
+                                                >
+                                                    {item.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </label>
+
+                                    <label>
+                                        Level Gear
+                                        <input
+                                            type="number"
+                                            min="1"
+                                            max={selectedGear?.maxLevel ?? 1}
+                                            disabled={!enabled || !selectedGear}
+                                            value={gearLevels[index]}
+                                            onChange={e => {
+                                                const levels = [...gearLevels];
+                                                levels[index] = Math.min(
+                                                    selectedGear?.maxLevel ?? 1,
+                                                    Math.max(
+                                                        1,
+                                                        Number(
+                                                            e.target.value
+                                                        ) || 1
+                                                    )
+                                                );
+                                                setGearLevels(levels);
+                                            }}
+                                        />
+                                    </label>
+
+                                    <label>
+                                        Damage Gear
+                                        <input
+                                            type="text"
+                                            readOnly
+                                            value={
+                                                enabled
+                                                    ? getDamage(
+                                                          gearIds[index],
+                                                          gearLevels[index]
+                                                      ).toLocaleString("id-ID")
+                                                    : "0"
+                                            }
+                                        />
+                                    </label>
+                                </div>
+                            );
+                        })}
+
+                        <div className="calc-intro">
+                            <h3>Lightning Spell</h3>
+                            <p>
+                                Aktifkan jika serangan menggunakan spell petir.
+                            </p>
+                        </div>
+
+                        <div className="calc-fields">
+                            <label>
+                                Status Lightning
+                                <select
+                                    value={lightningEnabled ? "on" : "off"}
+                                    onChange={e =>
+                                        setLightningEnabled(
+                                            e.target.value === "on"
+                                        )
+                                    }
+                                >
+                                    <option value="off">OFF</option>
+                                    <option value="on">ON</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Level Lightning
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max={13}
+                                    disabled={!lightningEnabled}
+                                    value={lightningLevel}
+                                    onChange={e =>
+                                        setLightningLevel(
+                                            Math.min(
+                                                13,
+                                                Math.max(
+                                                    1,
+                                                    Number(e.target.value) || 1
+                                                )
+                                            )
+                                        )
+                                    }
+                                />
+                            </label>
+
+                            <label>
+                                Damage Lightning
+                                <input
+                                    type="text"
+                                    readOnly
+                                    value={lightningDamage.toLocaleString(
+                                        "id-ID"
+                                    )}
+                                />
+                            </label>
+                        </div>
+
                         <div className="calc-result">
-                            <span>ESTIMATED DAMAGE / CAST</span>
+                            <span>TOTAL ESTIMATED DAMAGE</span>
                             <strong>{damage.toLocaleString("id-ID")}</strong>
+
                             <small>
-                                HP awal:{" "}
-                                {Number(baseHp || 0).toLocaleString("id-ID")} ·{" "}
-                                {quakePercent}% dari HP awal · {quakeCount} cast
-                                dipilih
+                                Earthquake:{" "}
+                                {quakeDamage.toLocaleString("id-ID")} / cast
+                                {" · "}
+                                Gear: {gearDamage.toLocaleString("id-ID")}
+                                {" · "}
+                                Lightning:{" "}
+                                {lightningDamage.toLocaleString("id-ID")}
                             </small>
                         </div>
                     </section>
