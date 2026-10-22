@@ -65,6 +65,23 @@
                 "level": 9,
                 "damage": 560,
                 "totalAttack": 8
+            },
+            {
+                "level": 12,
+                "damage": 630
+            },
+            {
+                "level": 15,
+                "damage": 700
+            },
+            {
+                "level": 18,
+                "damage": 770,
+                "totalAttack": 9
+            },
+            {
+                "level": 21,
+                "damage": 840
             }
         ],
         "tags": ["damage", "range"]
