@@ -44,7 +44,7 @@
   },
   {
     "id": "rocket-spear",
-    "name": "Rocket Spear",
+    "name": "Rocket Spear/Tombak Roket",
     "category": "gear",
     "rarity": "Epic",
     "hero": "Royal Champion",
@@ -53,15 +53,15 @@
     "stats": [
       {
         "level": 1,
-        "damage": 600
+        "damage": 350
       },
       {
-        "level": 9,
-        "damage": 1200
+        "level": 3,
+        "damage": 420
       },
       {
-        "level": 18,
-        "damage": 1800
+        "level": 6,
+        "damage": 490
       },
       {
         "level": 27,
