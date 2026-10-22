@@ -33,9 +33,26 @@ const labels: Record<string, string> = {
 };
 function getStats(item: GameItem, level: number): LevelStats {
     const sorted = [...item.stats].sort((a, b) => a.level - b.level);
+
     let out = sorted[0];
-    for (const row of sorted) if (row.level <= level) out = row;
-    return out;
+
+    for (const row of sorted) {
+        if (row.level <= level) out = row;
+    }
+
+    const exact = sorted.find(row => row.level === level);
+
+    if (!exact) return out;
+
+    return {
+        ...out,
+        ...exact,
+        ...Object.fromEntries(
+            Object.keys(out)
+                .filter(key => key !== "level" && !(key in exact))
+                .map(key => [key, undefined])
+        )
+    };
 }
 export default function Dashboard() {
     const [category, setCategory] = useState("all"),
