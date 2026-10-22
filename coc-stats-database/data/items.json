@@ -55,68 +55,45 @@
             },
             {
                 "level": 3,
-                "damage": 420
+                "damagePerSecond": 420
             },
             {
                 "level": 6,
-                "damage": 490
+                "damagePerSecond": 490
             },
             {
                 "level": 9,
-                "damage": 560,
+                "damagePerSecond": 560,
                 "totalAttack": 8
             },
             {
                 "level": 12,
-                "damage": 630
+                "damagePerSecond": 630
             },
             {
                 "level": 15,
-                "damage": 700
+                "damagePerSecond": 700
             },
             {
                 "level": 18,
-                "damage": 770,
+                "damagePerSecond": 770,
                 "totalAttack": 9
             },
             {
                 "level": 21,
-                "damage": 840
+                "damagePerSecond": 840
+            },
+            {
+                "level": 24,
+                "damagePerSecond": 910
+            },
+            {
+                "level": 27,
+                "damagePerSecond": 980,
+                "totalAttack": 10
             }
         ],
         "tags": ["damage", "range"]
-    },
-    {
-        "id": "seeking-shield",
-        "name": "Seeking Shield",
-        "category": "gear",
-        "rarity": "Epic",
-        "hero": "Royal Champion",
-        "maxLevel": 18,
-        "description": "A seeking shield that bounces between targets.",
-        "stats": [
-            {
-                "level": 1,
-                "damage": 300,
-                "targets": 4
-            },
-            {
-                "level": 6,
-                "damage": 450,
-                "targets": 4
-            },
-            {
-                "level": 12,
-                "damage": 600,
-                "targets": 4
-            },
-            {
-                "level": 18,
-                "damage": 750,
-                "targets": 4
-            }
-        ],
-        "tags": ["damage", "multi-target"]
     },
     {
         "id": "fireball",
