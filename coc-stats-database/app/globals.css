@@ -967,3 +967,52 @@ footer > span {
     outline: 2px solid var(--cyan);
     outline-offset: 3px;
 }
+/* GEAR SELECT - DARK THEME */
+.calc-fields select {
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 14px;
+
+    color: var(--text);
+    background-color: #111c2a;
+
+    border: 1px solid var(--line);
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+    color-scheme: dark;
+    appearance: auto;
+    -webkit-appearance: auto;
+}
+
+.calc-fields select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px #4b9dff22;
+}
+
+.calc-fields select:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* OPTIONS DALAM DROPDOWN */
+.calc-fields select option {
+    color: var(--text);
+    background-color: #111c2a;
+}
+
+/* LABEL INPUT DAN SELECT */
+.calc-fields label {
+    min-width: 0;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 600px) {
+    .calc-fields select {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+}
