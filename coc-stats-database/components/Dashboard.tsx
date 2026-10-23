@@ -542,18 +542,19 @@ export default function Dashboard() {
                                             disabled={!enabled || !selectedGear}
                                             value={gearLevels[index]}
                                             onChange={e => {
+                                                const value = e.target.value;
+
+                                                if (value === "") {
+                                                    const levels = [
+                                                        ...gearLevels
+                                                    ];
+                                                    levels[index] = 0;
+                                                    setGearLevels(levels);
+                                                    return;
+                                                }
+
                                                 const levels = [...gearLevels];
-
-                                                levels[index] = Math.min(
-                                                    selectedGear?.maxLevel ?? 1,
-                                                    Math.max(
-                                                        1,
-                                                        Number(
-                                                            e.target.value
-                                                        ) || 1
-                                                    )
-                                                );
-
+                                                levels[index] = Number(value);
                                                 setGearLevels(levels);
                                             }}
                                         />
@@ -615,17 +616,12 @@ export default function Dashboard() {
                                     max="13"
                                     disabled={!lightningEnabled}
                                     value={lightningLevel}
-                                    onChange={e =>
+                                    onChange={e => {
+                                        const value = e.target.value;
                                         setLightningLevel(
-                                            Math.min(
-                                                13,
-                                                Math.max(
-                                                    1,
-                                                    Number(e.target.value) || 1
-                                                )
-                                            )
-                                        )
-                                    }
+                                            value === "" ? 0 : Number(value)
+                                        );
+                                    }}
                                 />
                             </label>
 
