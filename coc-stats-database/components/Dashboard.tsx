@@ -95,7 +95,12 @@ export default function Dashboard() {
     };
 
     const quakeDamage = Math.round(
-        (Number(baseHp || 0) * Number(quakePercent || 0)) / 100
+        Array.from(
+            { length: Math.min(20, Math.max(0, Number(quakeCount) || 0)) },
+            (_, i) =>
+                (Number(baseHp || 0) * (Number(quakePercent || 0) / 100)) /
+                (2 * i + 1)
+        ).reduce((total, damage) => total + damage, 0)
     );
 
     const gearDamage = gearEnabled.reduce(
